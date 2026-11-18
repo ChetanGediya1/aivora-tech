@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aivora Tech | Mobile App Development Company</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.05);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.1);
+            --border-radius: 12px;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #e9f5ff 100%);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- SERVICES GRID (Image 1 Replica) --- */
+        #services {
+            padding: 80px 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid transparent;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .service-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* --- PRODUCTS SECTION (Your Apps) --- */
+        #products {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: left;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-card i {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* --- STATS / WHY US SECTION (Image 2 Replica) --- */
+        #stats {
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* --- FORM SECTION (Your 2 New Fields) --- */
+        #contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            opacity: 0.7;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            .services-grid, .stats-grid, .products-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .contact-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Aivora <span>Tech</span></div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#products">Our Apps</a>
+                <a href="#stats">Why Us</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Build the app your business <span>deserves.</span></h1>
+            <p>We are Aivora Tech, a Mobile App Development Company. We design and develop thoughtful mobile experiences for teams ready to turn a good idea into a product people keep coming back to.</p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </header>
+
+    <!-- Services Section (Image 1 Replica) -->
+    <section id="services" class="container">
+        <div class="section-title">
+            <h2>What We Do</h2>
+            <p>From first sketch to favorite app. One focused team for strategy, design, and technology.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-brands fa-android"></i>
+                <h3>Android</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-brands fa-apple"></i>
+                <h3>iOS</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <h3>App Monetisation</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-bullhorn"></i>
+                <h3>Digital Marketing (Ads)</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>SEO / ASO</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h3>Analytics (GA4 / Firebase)</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-robot"></i>
+                <h3>Marketing Automation</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-hand-pointer"></i>
+                <h3>Conversion Optimisation (CRO)</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-flask"></i>
+                <h3>Ad Mediation & A/B Testing</h3>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>Mobile App Growth</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section (Your Requested Apps) -->
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Company Products</h2>
+                <p>We build high-quality, user-friendly applications for everyday needs.</p>
+            </div>
+            <div class="products-grid">
+                <!-- App 1 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <h3>Message App</h3>
+                    <p>A secure and fast messaging application for seamless communication with friends and family.</p>
+                </div>
+                <!-- App 2 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-address-book"></i>
+                    <h3>Contacts App</h3>
+                    <p>Smart contact management to keep your connections organized and easily accessible.</p>
+                </div>
+                <!-- App 3 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-images"></i>
+                    <h3>Gallery App</h3>
+                    <p>A beautiful, lightweight gallery app to view and organize your photos effortlessly.</p>
+                </div>
+                <!-- App 4 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>Wrist Watch</h3>
+                    <p>Companion app for your smart wrist watch to track health, time, and notifications.</p>
+                </div>
+                <!-- App 5 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-wallet"></i>
+                    <h3>PayApp</h3>
+                    <p>Secure digital wallet for fast, contactless payments and money transfers.</p>
+                </div>
+                <!-- App 6 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-play"></i>
+                    <h3>Video Player</h3>
+                    <p>High-performance video player supporting all major formats with a sleek UI.</p>
+                </div>
+                <!-- App 7 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>GPS Map Camera</h3>
+                    <p>Capture photos with real-time GPS coordinates, timestamps, and location maps embedded.</p>
+                </div>
+                <!-- App 8 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-scissors"></i>
+                    <h3>HairStyle AI Apps</h3>
+                    <p>AI-powered app to virtually try on different hairstyles and find your perfect look.</p>
+                </div>
+                <!-- App 9 -->
+                <div class="product-card">
+                    <i class="fa-solid fa-person-walking"></i>
+                    <h3>Find a Posture</h3>
+                    <p>AI posture detection app that helps you improve your sitting and standing habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section (Image 2 Replica) -->
+    <section id="stats" class="container">
+        <div class="section-title">
+            <h2>Get Shape Your Ideas with us.</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fa-brands fa-upwork"></i>
+                <h3>Top Rated</h3>
+                <p>Upwork Freelancer</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-medal"></i>
+                <h3>10+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Growth Rate</h3>
+                <p>Consistent Yearly Growth</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-check-circle"></i>
+                <h3>1200+</h3>
+                <p>Projects Accomplished</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section (With 2 New Fields) -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Let's Build Something Great</h2>
+                <p>Ready to start your project? Fill out the form below and our team will get back to you.</p>
+            </div>
+            <div class="contact-container">
+                <form id="contactForm">
+                    <!-- Field 1: Name -->
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Doe" required>
+                    </div>
+                    
+                    <!-- Field 2: Email -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <!-- Field 3: Phone (New Field 1) -->
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+91 9876543210" required>
+                    </div>
+
+                    <!-- Field 4: Service Type (New Field 2) -->
+                    <div class="form-group">
+                        <label for="service">Service Required</label>
+                        <select id="service" required>
+                            <option value="">-- Select a Service --</option>
+                            <option value="android">Android App Development</option>
+                            <option value="ios">iOS App Development</option>
+                            <option value="uiux">UI/UX Design</option>
+                            <option value="marketing">App Marketing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Field 5: Message -->
+                    <div class="form-group">
+                        <label for="message">Project Description</label>
+                        <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aivora Tech. All Rights Reserved. | Mobile App Development Company</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Handling -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents page reload
+            
+            // Get values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            
+            // Simple validation & alert (In real world, you would send this to a server)
+            alert(`Thank you, ${name}! We have received your request for ${service}. We will contact you at ${phone} shortly.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
